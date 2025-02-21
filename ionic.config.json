@@ -1,0 +1,8 @@
+{
+  "name": "KitchenApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d459d326"
+}

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title >Add Store Owner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div >
+    <form (submit)="submitStoreOwner()">
+      <ion-item >
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="storeOwner.name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Surname</ion-label>
+        <ion-textarea [(ngModel)]="storeOwner.surname" name="surname"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Username</ion-label>
+        <ion-textarea [(ngModel)]="storeOwner.username" name="username"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Password</ion-label>
+        <ion-textarea [(ngModel)]="storeOwner.password" name="password"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-textarea [(ngModel)]="storeOwner.confirmPassword" name="confirmPassword"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input [(ngModel)]="storeOwner.mobileNumber" name="mobileNumber" required></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Photo</ion-label>
+        <ion-input [(ngModel)]="storeOwner.photo" name="photo"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        Create Store Owner
+      </ion-button>
+    </form> 
+  </div>
+ <!-- <ion-button expand="block" (click)="presentAlert()">Show Alert</ion-button> -->
+   <!-- <ion-alert trigger="present-alert" header="Alert!" [buttons]="createStoreAlertButton" (didDismiss)="confirmAlertResult($event)"></ion-alert> -->
+</ion-content>
+  

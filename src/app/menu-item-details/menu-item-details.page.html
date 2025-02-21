@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()">Back</ion-button>
+    <ion-title>{{ menuItem?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="menuItem">
+  <ion-card>
+    <img [src]="menuItem.logo" alt="{{ menuItem.name }} Logo" />
+    <ion-card-header>
+      <ion-card-title>{{ menuItem.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ menuItem.description }}</p>
+      <p><strong>Price:</strong> {{ menuItem.price }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!--<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let store of stores" (click)="goToStoreDetails(store._id)">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/image.svg " alt="{{ store.logo }} Logo" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ store.name }}</h2>
+          <p>{{ store.description }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content> -->
+

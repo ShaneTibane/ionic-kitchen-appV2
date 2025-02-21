@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title >Authentication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div >
+    <form (submit)="submitAuthentication()">
+  
+
+      <ion-item >
+        <ion-label position="floating">Username</ion-label>
+        <ion-textarea [(ngModel)]="authentication.username" name="username"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Password</ion-label>
+        <ion-textarea [(ngModel)]="authentication.password" name="password"></ion-textarea>
+      </ion-item>
+
+    
+
+      <ion-button expand="block" type="submit">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        Login
+      </ion-button>
+    </form> 
+  </div>
+ <!-- <ion-button expand="block" (click)="presentAlert()">Show Alert</ion-button> -->
+   <!-- <ion-alert trigger="present-alert" header="Alert!" [buttons]="createStoreAlertButton" (didDismiss)="confirmAlertResult($event)"></ion-alert> -->
+</ion-content>
+  

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="end" *ngIf="isUserLoggedIn">
+      <ion-button (click)="openCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge *ngIf="cartCount > 0" color="danger">{{ cartCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    <ion-button (click)="goBack()">Back</ion-button>
+    <ion-title >{{storeName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="store">
+  <ion-card>
+    <img [src]="store.logo" alt="{{ store.name }} Logo" />
+    <ion-card-header>
+      <ion-card-title>{{ store.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content  class="store-ion-card-content">
+      <p>{{ store.description }}</p>
+      <p style="color: white;"><strong>Address:</strong> {{ store.address }}</p>
+      <p><strong>Phone:</strong> {{ store.phone }}</p>
+      <p>
+        <strong>name:</strong>
+        <a [href]="store.name" target="_blank">{{ store.name }}</a>
+      </p>
+  
+    </ion-card-content>
+  </ion-card>
+  <p style="color: black;"><strong>Menu Items</strong></p>
+  <p *ngIf="noMenuItemsMessage">No Menu Items</p>
+  <ion-content>
+    <ion-list>
+      <ion-card *ngFor="let menuItem of menuItems" (click)="goToMenuItemDetails(menuItem._id)">
+        <ion-item class="ion-item-class">
+          <ion-avatar slot="start">
+            <img [src]="menuItem.logo" alt="{{ menuItem.name }} Logo" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ menuItem.name }}</h2>
+            <p>{{ menuItem.description }}</p>
+            <p>{{ menuItem.price }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+
+    <ion-button *ngIf="isUserLoggedIn" expand="block" (click)="goToAddMenuItem()">
+      <ion-icon  slot="start"></ion-icon>
+      Add Menu Item
+    </ion-button>
+  </ion-content>
+ 
+</ion-content>
+
+<!--<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let store of stores" (click)="goToStoreDetails(store._id)">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/image.svg " alt="{{ store.logo }} Logo" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ store.name }}</h2>
+          <p>{{ store.description }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content> -->
+

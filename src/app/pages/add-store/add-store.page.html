@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title >Add Store</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div >
+    <form (submit)="submitStore()">
+      <ion-item >
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="store.name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea [(ngModel)]="store.description" name="description"></ion-textarea>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Address</ion-label>
+        <ion-input [(ngModel)]="store.address" name="address" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input [(ngModel)]="store.phone" name="phone"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating">Logo URL</ion-label>
+        <ion-input [(ngModel)]="store.logo" name="logo"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="custom-btn" type="submit">
+        <ion-icon name="storefront-outline" slot="start"></ion-icon>
+        Create Store
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
