@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   signOut(){
-    this.utils.showButtonsAlert("Sign out","Are you want to sign out",(acceptted)=>{
+    this.utils.showButtonsAlert("AWS Sign out","Are you want to sign out",(acceptted)=>{
       console.log("acceptted",acceptted)
       if(acceptted == "yes"){
         this.router.navigate(['/home']);
