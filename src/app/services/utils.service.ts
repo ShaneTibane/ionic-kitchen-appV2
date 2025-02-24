@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class UtilsService {
   private userSubject = new BehaviorSubject<any>(null); // Store user data
   user$ = this.userSubject.asObservable(); // Expose observable to listen for changes 
-   apiUrl ="http://localhost:3001/ESB/";
+   //apiUrl ="http://localhost:3001/ESB/";
+   apiUrl ="http://18.227.111.189:3001/ESB/"
    public alertButtons = [
     {
       text: 'No',
