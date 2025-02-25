@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ionic-build
-          path: www/
+          path: 
 
   deploy_s3:
     needs: build
