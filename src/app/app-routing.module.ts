@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
+  { path: '', redirectTo: 'kit', pathMatch: 'full' },
+  { path: 'kit', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
   { path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule) },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
   { path: 'about', loadChildren: () => import('./pages/about/about.module').then(m => m.AboutPageModule) },
@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () => import('./add-customer/add-customer.module').then( m => m.AddCustomerPageModule)
-  },  {
+  },
+  {
     path: 'authentication',
     loadChildren: () => import('./authentication/authentication.module').then( m => m.AuthenticationPageModule)
   },

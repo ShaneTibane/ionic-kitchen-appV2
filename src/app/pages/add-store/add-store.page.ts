@@ -18,9 +18,15 @@ export class AddStorePage {
     name: '',
     description: '',
     address:'',
-    logo: '',
     phone:'',
-    modelName:"Store"
+    cuisine: '',
+    image: '',
+    rating: 0,
+    deliveryTime: '',
+    priceRange: '',
+    isFeatured: false,
+    promotions: [],
+    modelName:"Restuarant"
   };
 
   constructor(private storeService: StoreService, private router: Router,private utils: UtilsService) {}
