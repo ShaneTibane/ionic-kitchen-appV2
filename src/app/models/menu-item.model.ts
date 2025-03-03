@@ -5,5 +5,6 @@ export interface MenuItem {
       price:String,
       logo:String,
       storeId:String
+      restaurantId:String
     }
     

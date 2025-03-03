@@ -19,6 +19,10 @@ export class MenuItemService {
     return this.http.post<any>(this.apiUrl + "/menuItemList", payload);
   }
   createMenuItem(payload: any): Observable<any> {
+    console.log("createMenuItem PAYLOAD",payload)
+
+   
+    console.log("API",this.apiUrl + "/createMenuItem")
     return this.http.post<any>(this.apiUrl + "/createMenuItem", payload);
   }
   getMenuItemById(payload: any): Observable<any> {

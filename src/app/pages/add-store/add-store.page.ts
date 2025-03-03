@@ -26,6 +26,7 @@ export class AddStorePage {
     priceRange: '',
     isFeatured: false,
     promotions: [],
+    menus:[],
     modelName:"Restuarant"
   };
 

@@ -39,7 +39,7 @@ export class HomePage {
   fetchStores() {
     this.utils.showLoadingAndToast() 
     //this.presentToast("middle")
-    const payload =  { "modelName": "Store" }; // Add necessary parameters if required
+    const payload =  { "modelName": "Restuarant" }; // Add necessary parameters if required
     this.storeService.getStores(payload).subscribe(
       (data) => {
         console.log("DATA:",data)
@@ -54,10 +54,11 @@ export class HomePage {
       }
     );
   }
-  goToStoreDetails(_id: String) {
-    this.router.navigate(['/store-details', _id]);
-  }
+    goToStoreDetails(_id: String) {
+      this.router.navigate(['/store-details', _id]);
+    }
   presentToast(position: 'top' | 'middle' | 'bottom'){
     this.utils.presentToast(position)
   }
+  
 }

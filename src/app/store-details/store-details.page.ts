@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicModule, NavController } from '@ionic/angular'; // ✅ Import IonicModule
+import { IonicModule, ModalController, NavController } from '@ionic/angular'; // ✅ Import IonicModule
 import { CommonModule } from '@angular/common';
 import { StoreService } from '../services/store.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,11 +8,15 @@ import { MenuItemService } from '../services/menu-item.service';
 import { MenuItem } from '../models/menu-item.model';
 import { UtilsService } from '../services/utils.service';
 import { Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { ModalExampleComponent } from '../components/modal-example/modal-example.component';
+import { ModalAddMenuItemComponent } from '../components/modal-add-menu-item/modal-add-menu-item.component';
 @Component({
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule , FormsModule],
   selector: 'app-store-details',
   templateUrl: './store-details.page.html',
   styleUrls: ['./store-details.page.scss'],
+  standalone:true
 })
 
 export class StoreDetailsPage implements OnInit {
@@ -23,12 +27,24 @@ export class StoreDetailsPage implements OnInit {
   storeName = '';
   menuItems: MenuItem[] = [];
   noMenuItemsMessage =true;
+  isModalOpen = false;
+  message = 'This modal example uses the modalController to present and dismiss modals.';
+
+  menuItem = {
+    name: '',
+    description: '',
+    price:'',
+    logo:'',
+    restaurantId:this.route.snapshot.paramMap.get('id') || ''
+  };
   constructor( private storeService: StoreService,
               private menuItemService: MenuItemService,
               private route: ActivatedRoute,
               private router: Router,
               private utils:UtilsService,
-            private navCtrl: NavController) { 
+            private navCtrl: NavController,
+            private modalCtrl: ModalController
+          ) { 
      // Subscribe to user data changes
      this.authSubscription = this.utils.user$.subscribe((user) => {
       this.isUserLoggedIn = user;
@@ -70,6 +86,24 @@ export class StoreDetailsPage implements OnInit {
     }
 
   }
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalAddMenuItemComponent,
+      componentProps: {
+        restuarantId: this.route.snapshot.paramMap.get('id')
+      },
+    });
+    modal.present();
+    const { data, role } = await modal.onWillDismiss();
+    if (role === 'confirm') {
+      this.message = `Hello, ${data}!`;
+    }
+  }
+ 
+ 
+  closeModal() {
+    this.isModalOpen = false;
+  }
   openCart() {
     this.router.navigate(['/']); // Navigate to your cart page
   }
@@ -82,6 +116,10 @@ export class StoreDetailsPage implements OnInit {
   }
    goToAddMenuItem() {
     this.router.navigate(['/add-menu-item', this.route.snapshot.paramMap.get('id')]);
+  }
+  goToMenuManagement(restuarantId:any){
+    this.router.navigate(['/add-menu-item', restuarantId]);
+
   }
   goToMenuItemDetails(menuItemId:any){
 console.log(" goToMenuItemDetails menuItemId",menuItemId)

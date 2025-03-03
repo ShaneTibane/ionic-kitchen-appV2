@@ -20,7 +20,6 @@ export class AddMenuItemPage implements OnInit {
     logo: '',
     modelName:"MenuItem",
     storeId:''
-
   };
   storeId :string | null;
   constructor(  private loadingCtrl: LoadingController,private utils: UtilsService,

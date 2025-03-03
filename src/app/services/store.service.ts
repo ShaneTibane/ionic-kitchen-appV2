@@ -27,5 +27,14 @@ export class StoreService {
   getStoreById(payload: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + "/storeDetails", payload);
   }
+  getMenusByRestaurant(payload: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl + "/getMenusByStore", payload);
+  }
+  addMenuItem(payload: any): Observable<any> {
+    console.log("addMenuItem ",payload)
+    console.log("SEND TO",this.apiUrl + "/addStoreMenuItem")
+    return this.http.post<any>(this.apiUrl + "/addStoreMenuItem", payload);
+  }
+  
   
 }

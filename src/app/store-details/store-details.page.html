@@ -26,7 +26,10 @@
         <strong>name:</strong>
         <a [href]="store.name" target="_blank">{{ store.name }}</a>
       </p>
-  
+      <ion-button  expand="block" (click)="goToMenuManagement(store._id )">
+        <ion-icon name="arrow-forward-outline" slot="start"></ion-icon>
+        CHeck Menus
+      </ion-button>
     </ion-card-content>
   </ion-card>
   <p style="color: black;"><strong>Menu Items</strong></p>
@@ -53,6 +56,10 @@
     </ion-button>
   </ion-content>
  
+</ion-content>
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="openModal()">Open</ion-button>
+  <p>{{ message }}</p>
 </ion-content>
 
 <!--<ion-content>

@@ -1,9 +1,13 @@
-
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add Menu Item</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 
 <ion-content class="ion-padding">
   <div >
-    <form (submit)="submitMenuItem()">
+    <form (submit)="submitMenuItem($event)">
       <ion-item > 
         <ion-label position="floating">Name</ion-label>
         <ion-input [(ngModel)]="menuItem.name" name="name" required></ion-input>
@@ -31,5 +35,3 @@
     </form>
   </div>
 </ion-content>
-
-  

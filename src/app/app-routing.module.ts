@@ -54,7 +54,11 @@ const routes: Routes = [
   {
     path: 'authentication',
     loadChildren: () => import('./authentication/authentication.module').then( m => m.AuthenticationPageModule)
+  },  {
+    path: 'menu-management',
+    loadChildren: () => import('./pages/menu-management/menu-management.module').then( m => m.MenuManagementPageModule)
   },
+
 
 
 
